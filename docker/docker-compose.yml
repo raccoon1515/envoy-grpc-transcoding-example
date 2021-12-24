@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  envoy:
+    image: envoyproxy/envoy-alpine:v1.20-latest
+    ports:
+      - "9901:9901"
+      - "51051:51051"
+    volumes:
+      - ../src/main/proto:/protos
+      - ./envoy-grpc-web-config.yml:/etc/envoy/envoy.yaml
